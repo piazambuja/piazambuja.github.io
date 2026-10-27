@@ -1,6 +1,6 @@
 {
   "name": "career",
-  "description": "Prepare a tech job search: audit and rewrite a LinkedIn profile for a target role, with keywords, Featured section and recruiter outreach, without inventing results.",
+  "description": "Prepare a job search in any field: align CV and LinkedIn, rewrite the profile for a target role, evaluate job postings and fill in applications, without inventing results.",
   "author": {
     "name": "Piero Azambuja"
   },
@@ -9,6 +9,7 @@
     "linkedin",
     "career",
     "job-search",
-    "recruiting"
+    "recruiting",
+    "job-application"
   ]
 }

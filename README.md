@@ -30,7 +30,7 @@ Valores de `-a`: `claude-code`, `codex`, `gemini-cli`, `github-copilot`, `cursor
 | `incident-response` | Skills `incident-commander` e `postmortem` |
 | `aws-finops` | Skill `aws-cost-review` |
 | `ai-platform` | Skills `llm-gateway-design`, `mcp-server-review` e `skill-authoring` |
-| `career` | Skill `linkedin-profile`: auditoria e reescrita do perfil do LinkedIn para recrutadores |
+| `career` | Skills `linkedin-profile` (alinha currículo e LinkedIn e reescreve o perfil para recrutadores) e `job-application` (avalia vagas e preenche candidaturas) |
 | `prod-guardrails` | Hook `PreToolUse` que pede confirmação antes de comandos destrutivos em produção |
 
 ## Estrutura
