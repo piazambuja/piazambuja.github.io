@@ -1,0 +1,111 @@
+{
+  "name": "Piero Azambuja",
+  "role": "Especialista em SRE",
+  "location": "Teutônia, RS",
+  "lead": "Construo plataformas que deixam sistemas distribuídos mais confiáveis, observáveis e fáceis de operar, em AWS e Kubernetes. No último ano, também a plataforma de IA que deixa os times usarem LLMs com acesso e custo sob controle.",
+  "about": [
+    "Trabalho com TI há mais de dez anos. Meu foco é fazer sistemas grandes ficarem previsíveis: SLOs que refletem o que o usuário sente, alertas que só acordam alguém quando precisa e uma plataforma em que o caminho certo também é o mais fácil.",
+    "No PagBank, passei de System Engineer a Especialista em SRE e virei referência técnica em observabilidade e Platform Engineering para vários times. Concebi o Keplr, plataforma interna de observabilidade com Service Map, distributed tracing e correlação de telemetria. No último ano, construí a base da plataforma de IA: um LLM gateway sobre o Amazon Bedrock que virou o ponto único de consumo de modelos da empresa, com custo rateado por time, um MCP gateway e um marketplace interno de skills, plugins e prompts.",
+    "Este site junta as duas coisas: quem eu sou e um marketplace público de skills e plugins para agentes de código, com o que aprendi em plantão, incidente e plataforma."
+  ],
+  "areas": [
+    {
+      "title": "Confiabilidade e SLOs",
+      "text": "SLIs pela jornada do usuário, error budget com política clara e alertas por burn rate no lugar de limiares chutados."
+    },
+    {
+      "title": "Kubernetes e AWS",
+      "text": "EKS em produção, rightsizing, autoscaling, rede e custos. Infra como código, com mudanças pequenas e reversíveis."
+    },
+    {
+      "title": "Observabilidade",
+      "text": "Métricas, logs e traces que respondem perguntas de incidente. Prometheus, Grafana e OpenTelemetry."
+    },
+    {
+      "title": "Plataforma de IA",
+      "text": "LLM gateway, MCP gateway e catálogo interno de skills e plugins para agents, com governança de acesso e custo."
+    }
+  ],
+  "experience": [
+    {
+      "start": "jan/2026",
+      "end": "out/2026",
+      "title": "Especialista em SRE",
+      "org": "PagBank",
+      "text": "Plataforma de IA: LLM gateway sobre o Amazon Bedrock como ponto único de consumo de modelos, com acesso e custo centralizados e rateio por time; MCP gateway para ligar ferramentas internas a agentes; marketplace interno de skills, plugins e prompts. Também o Keplr, plataforma de observabilidade para investigar sistemas distribuídos."
+    },
+    {
+      "start": "set/2024",
+      "end": "jan/2026",
+      "title": "Senior System Engineer",
+      "org": "PagBank",
+      "text": "Confiabilidade e observabilidade de serviços críticos de pagamento em AWS e Kubernetes."
+    },
+    {
+      "start": "set/2021",
+      "end": "set/2024",
+      "title": "System Engineer",
+      "org": "PagBank",
+      "text": "Operação e evolução da infraestrutura em nuvem, automação e resposta a incidentes."
+    },
+    {
+      "start": "mar/2018",
+      "end": "out/2018",
+      "title": "Gerente operacional",
+      "org": "Grupo RD",
+      "text": "Operação do dia a dia e também a área de TI: continuidade de equipamentos e sistemas e melhorias operacionais."
+    }
+  ],
+  "education": [
+    {
+      "period": "2026 – em andamento",
+      "title": "Gestão da Tecnologia da Informação",
+      "org": "PUCRS"
+    },
+    {
+      "period": "2012 – 2014",
+      "title": "Engenharia de Controle e Automação (2,5 anos, não concluído)",
+      "org": "Univates"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2012-03",
+      "label": "Univates",
+      "detail": "Eng. de Controle e Automação"
+    },
+    {
+      "date": "2021-09",
+      "label": "PagBank",
+      "detail": "System Engineer"
+    },
+    {
+      "date": "2024-09",
+      "label": "Senior",
+      "detail": "Senior System Engineer"
+    },
+    {
+      "date": "2026-01",
+      "label": "SRE",
+      "detail": "Especialista em SRE e plataforma de IA"
+    }
+  ],
+  "links": {
+    "email": "pieroazambuja@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/pieroazambuja/",
+    "github": ""
+  },
+  "availability": "Aberto a vagas de SRE, Platform Engineer, AI Platform Engineer ou Observability Engineer, remoto ou híbrido.",
+  "certifications": [
+    {
+      "period": "2022 a 2025",
+      "title": "CKA, Certified Kubernetes Administrator",
+      "org": "CNCF"
+    },
+    {
+      "period": "2021",
+      "title": "AWS Certified Cloud Practitioner",
+      "org": "AWS"
+    }
+  ]
+}

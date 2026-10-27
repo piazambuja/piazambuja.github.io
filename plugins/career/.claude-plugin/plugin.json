@@ -1,0 +1,17 @@
+{
+  "name": "career",
+  "description": "Prepare a job search in any field: align CV and LinkedIn, rewrite the profile for a target role, evaluate job postings and fill in applications, and publish a personal site on GitHub Pages, without inventing results.",
+  "author": {
+    "name": "Piero Azambuja"
+  },
+  "license": "MIT",
+  "keywords": [
+    "linkedin",
+    "career",
+    "job-search",
+    "recruiting",
+    "job-application",
+    "portfolio",
+    "github-pages"
+  ]
+}

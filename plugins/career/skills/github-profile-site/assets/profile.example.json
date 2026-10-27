@@ -1,0 +1,32 @@
+{
+  "lang": "en",
+  "name": "Alex Doe",
+  "role": "Product Designer",
+  "location": "Lisbon, Portugal",
+  "lead": "I design tools that make complex work feel simple, mostly for B2B software teams.",
+  "about": [
+    "[Two or three sentences about your work, in your own words.]",
+    "[What you're looking for or working on now. Optional.]"
+  ],
+  "experience": [
+    {
+      "start": "2022",
+      "end": "now",
+      "title": "Senior Product Designer",
+      "org": "[Company]",
+      "text": "[One or two lines on what you did and the result.]"
+    }
+  ],
+  "projects": [
+    {
+      "title": "[Project name]",
+      "url": "https://example.com",
+      "text": "[One line on what it is.]"
+    }
+  ],
+  "links": {
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/[your-handle]",
+    "email": ""
+  }
+}
