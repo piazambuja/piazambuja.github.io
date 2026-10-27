@@ -1,0 +1,14 @@
+{
+  "name": "incident-response",
+  "description": "Run an incident with a clear structure (triage, roles, status updates) and turn it into a blameless postmortem with real action items.",
+  "author": {
+    "name": "Piero Azambuja"
+  },
+  "license": "MIT",
+  "keywords": [
+    "incident",
+    "on-call",
+    "postmortem",
+    "sre"
+  ]
+}

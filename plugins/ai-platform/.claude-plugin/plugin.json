@@ -1,0 +1,15 @@
+{
+  "name": "ai-platform",
+  "description": "Design and review internal AI platform pieces: LLM gateways with per-team cost attribution, MCP servers and internal skill/plugin catalogs.",
+  "author": {
+    "name": "Piero Azambuja"
+  },
+  "license": "MIT",
+  "keywords": [
+    "llm-gateway",
+    "bedrock",
+    "mcp",
+    "agents",
+    "platform-engineering"
+  ]
+}

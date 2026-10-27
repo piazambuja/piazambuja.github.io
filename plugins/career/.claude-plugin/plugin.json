@@ -1,0 +1,14 @@
+{
+  "name": "career",
+  "description": "Prepare a tech job search: audit and rewrite a LinkedIn profile for a target role, with keywords, Featured section and recruiter outreach, without inventing results.",
+  "author": {
+    "name": "Piero Azambuja"
+  },
+  "license": "MIT",
+  "keywords": [
+    "linkedin",
+    "career",
+    "job-search",
+    "recruiting"
+  ]
+}
