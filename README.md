@@ -5,14 +5,23 @@ Este repositório é duas coisas ao mesmo tempo:
 1. **Um marketplace de plugins para o Claude Code** (`.claude-plugin/marketplace.json` + `plugins/`).
 2. **Meu site pessoal no GitHub Pages**, gerado a partir do mesmo conteúdo: a página de cada plugin é montada lendo os `plugin.json` e `SKILL.md`, então o catálogo nunca fica desatualizado.
 
-## Usar os plugins
+## Usar as skills e os plugins
 
-No Claude Code:
+No Claude Code, pelo marketplace:
 
 ```
-/plugin marketplace add <usuario>/<repo>
-/plugin install k8s-troubleshooting@piero-sre
+/plugin marketplace add piazambuja/piazambuja.github.io
+/plugin install k8s-troubleshooting@pieroazambuja
 ```
+
+No Codex, Gemini CLI, Copilot, Cursor ou Kiro, pelo [skills CLI](https://github.com/vercel-labs/skills), que lê o `marketplace.json`:
+
+```
+npx skills add piazambuja/piazambuja.github.io -a codex
+npx skills add piazambuja/piazambuja.github.io --skill k8s-triage -a gemini-cli
+```
+
+Valores de `-a`: `claude-code`, `codex`, `gemini-cli`, `github-copilot`, `cursor`, `kiro-cli`. O hook do `prod-guardrails` só funciona no Claude Code.
 
 | Plugin | O que traz |
 | --- | --- |
@@ -66,7 +75,7 @@ GITHUB_REPOSITORY=<usuario>/<repo> node build.mjs
 3. Adicione a entrada em `.claude-plugin/marketplace.json`.
 4. `npm run validate`. Se tiver o Claude Code instalado, rode também `claude plugin validate .`.
 
-Os plugins não fixam `version`, então cada commit vira uma versão nova para quem rodar `/plugin marketplace update piero-sre`.
+Os plugins não fixam `version`, então cada commit vira uma versão nova para quem rodar `/plugin marketplace update pieroazambuja`.
 
 ## Licença
 

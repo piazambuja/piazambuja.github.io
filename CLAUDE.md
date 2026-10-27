@@ -1,6 +1,6 @@
 # Projeto: site pessoal + marketplace de plugins (piazambuja.github.io)
 
-Site pessoal do Piero Azambuja (Especialista em SRE) e marketplace público de plugins para o Claude Code, no mesmo repositório e publicados no GitHub Pages.
+Site pessoal do Piero Azambuja (Especialista em SRE) e marketplace público de skills e plugins (`pieroazambuja`), no mesmo repositório e publicados no GitHub Pages. As skills instalam no Claude Code pelo marketplace e no Codex, Gemini CLI, Copilot, Cursor e Kiro pelo `npx skills add`; o site mostra um seletor de ferramenta com o comando de cada uma.
 
 ## Como funciona
 
@@ -31,6 +31,5 @@ Gere o site e tire screenshots em 1280px e 390px, nos modos claro e escuro, ante
 
 ## Pendências conhecidas
 
-- `links.linkedin` vazio em `content/profile.json`.
 - As descrições dos cargos System Engineer e Senior System Engineer são genéricas e precisam do texto do Piero.
 - Skills em inglês; site em português.

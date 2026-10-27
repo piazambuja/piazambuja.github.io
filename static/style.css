@@ -344,3 +344,20 @@ main, .site-header-inner, .site-footer {
 .md pre { max-width: 100%; }
 .md :not(pre) > code { overflow-wrap: anywhere; }
 @media (max-width: 40rem) { .md { padding-left: 0; } }
+
+/* Tool picker + commands, one dark panel */
+.installer { max-width: 46rem; min-width: 0; background: var(--code-bg); color: var(--code-fg); border-radius: 8px; overflow: hidden; }
+.installer-tabs { display: flex; flex-wrap: wrap; gap: 0 0.25rem; padding: 0 0.75rem; border-bottom: 1px solid color-mix(in srgb, var(--code-fg) 16%, transparent); }
+.installer-tabs button {
+  min-height: 44px; padding: 0 0.75rem; margin-bottom: -1px;
+  background: transparent; border: 0; cursor: pointer;
+  font: 500 var(--step--1) var(--sans); color: var(--code-dim);
+}
+.installer-tabs button:hover { color: var(--code-fg); }
+.installer-tabs button[aria-selected="true"] { color: var(--code-fg); box-shadow: inset 0 -2px 0 var(--prompt); }
+.installer-tabs button:focus-visible { outline-color: var(--prompt); outline-offset: -4px; }
+.installer-panel { padding: 0.5rem 0 1rem; }
+.installer .cmd { background: transparent; border-radius: 0; max-width: none; padding-block: 0.375rem; }
+.installer-hint { margin: 0.25rem 0 0; padding: 0 1.25rem; font-size: var(--step--1); color: var(--code-dim); max-width: 40rem; }
+.installer-panel > .installer-hint:first-child { padding-top: 0.5rem; }
+.installer-hint code { color: var(--code-fg); overflow-wrap: anywhere; }

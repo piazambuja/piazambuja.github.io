@@ -183,6 +183,40 @@ ${body}
 
 // ---------- pages ----------
 const addCmd = `/plugin marketplace add ${repoFull}`;
+const totalSkills = plugins.reduce((n, p) => n + p.skills.length, 0);
+
+// Agents the open skills CLI (npx skills) installs into; Claude Code also gets the plugin marketplace.
+const TOOLS = [
+  { id: "claude-code", label: "Claude Code" },
+  { id: "codex", label: "Codex" },
+  { id: "gemini-cli", label: "Gemini CLI" },
+  { id: "github-copilot", label: "Copilot" },
+  { id: "cursor", label: "Cursor" },
+  { id: "kiro-cli", label: "Kiro" },
+];
+
+// Tabbed install box. `forTool(tool)` returns { cmds: [...], hint } for each tool.
+// Without JS the first tab (Claude Code) shows; site.js switches tabs and keeps the choice.
+let installerCount = 0;
+function installer(forTool) {
+  const n = ++installerCount;
+  const tabs = TOOLS.map((t, i) => `<button type="button" role="tab" id="inst${n}-${t.id}" aria-controls="inst${n}-${t.id}-panel" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-tool="${t.id}">${t.label}</button>`).join("");
+  const panels = TOOLS.map((t, i) => {
+    const { cmds = [], hint = "" } = forTool(t);
+    return `<div class="installer-panel" role="tabpanel" id="inst${n}-${t.id}-panel" aria-labelledby="inst${n}-${t.id}" data-tool="${t.id}"${i === 0 ? "" : " hidden"}>
+      ${cmds.map((c) => cmd(c)).join("")}
+      ${hint ? `<p class="installer-hint">${hint}</p>` : ""}
+    </div>`;
+  }).join("");
+  return `<div class="installer"><div class="installer-tabs" role="tablist" aria-label="Sua ferramenta">${tabs}</div>${panels}</div>`;
+}
+
+const skillsCmd = (t, extra = "") => `npx skills add ${repoFull}${extra} -a ${t.id}`;
+const c = (text) => `<code>${e(text)}</code>`;
+
+const catalogInstaller = () => installer((t) => t.id === "claude-code"
+  ? { cmds: [addCmd], hint: `Depois instale um plugin com ${c(`/plugin install <nome>@${market.name}`)}, ou escolha na lista com ${c("/plugin")}. Para receber novidades, rode ${c(`/plugin marketplace update ${market.name}`)}.` }
+  : { cmds: [skillsCmd(t)], hint: `Instala as ${totalSkills} skills no projeto. Acrescente ${c("--skill <nome>")} para uma só, ou ${c("-g")} para todos os projetos. Hooks, como o prod-guardrails, só existem no Claude Code.` });
 
 function pluginRows(list) {
   return `<div class="plugin-head" aria-hidden="true"><span>Plugin</span><span>O que faz</span><span>Conteúdo</span></div>
@@ -265,11 +299,11 @@ function home() {
 </section>
 
 <section class="block market-teaser" aria-labelledby="h-market">
-  <h2 id="h-market">Marketplace de plugins</h2>
+  <h2 id="h-market">Skills e plugins</h2>
   <div class="prose">
-    <p>Plugins para o Claude Code com o que uso no dia a dia de SRE: triagem de Kubernetes, SLOs, resposta a incidentes, custos na AWS e plataforma de IA. Adicione o marketplace uma vez e instale só o que fizer sentido.</p>
+    <p>O que uso no dia a dia de SRE, empacotado para agentes de código: triagem de Kubernetes, SLOs, resposta a incidentes, custos na AWS e plataforma de IA. As skills funcionam no Claude Code, Codex, Gemini CLI, Copilot, Cursor e Kiro.</p>
   </div>
-  ${cmd(addCmd)}
+  ${catalogInstaller()}
   ${pluginRows(plugins)}
   <p class="more"><a href="${url("marketplace/")}">Ver como instalar e o conteúdo de cada plugin</a></p>
 </section>
@@ -285,12 +319,12 @@ function marketplaceIndex() {
   const body = `
 <section class="page-head">
   <p class="crumb"><a href="${url()}">${e(profile.name)}</a></p>
-  <h1>Marketplace de plugins para o Claude Code</h1>
+  <h1>Skills e plugins para agentes de código</h1>
   <div class="hero-row">
-    <p class="lead">${plugins.length} plugins de SRE e plataforma, mantidos neste repositório. Cada plugin traz skills que o Claude usa sozinho quando o assunto aparece, ou um hook que roda antes de comandos perigosos.</p>
+    <p class="lead">${totalSkills} skills e ${plugins.length} plugins de SRE e plataforma, mantidos neste repositório. O agente usa cada skill sozinho quando o assunto aparece. As skills funcionam no Claude Code, Codex, Gemini CLI, Copilot, Cursor e Kiro.</p>
     <dl class="stats">
       <div><dt>Plugins</dt><dd>${plugins.length}</dd></div>
-      <div><dt>Skills</dt><dd>${plugins.reduce((n, p) => n + p.skills.length, 0)}</dd></div>
+      <div><dt>Skills</dt><dd>${totalSkills}</dd></div>
       <div><dt>Hooks</dt><dd>${plugins.filter((p) => p.hookEvents.length).length}</dd></div>
     </dl>
   </div>
@@ -298,18 +332,14 @@ function marketplaceIndex() {
 
 <section class="block install" aria-labelledby="h-install">
   <h2 id="h-install">Instalar</h2>
-  <ol class="steps">
-    <li><p>Adicione o marketplace no Claude Code:</p>${cmd(addCmd)}</li>
-    <li><p>Instale um plugin pelo nome, ou escolha na lista com <code>/plugin</code>:</p>${cmd(`/plugin install k8s-troubleshooting@${market.name}`)}</li>
-    <li><p>Para receber novidades, atualize o marketplace:</p>${cmd(`/plugin marketplace update ${market.name}`)}</li>
-  </ol>
+  ${catalogInstaller()}
 </section>
 
 <section class="block" aria-labelledby="h-plugins">
   <h2 id="h-plugins">Plugins</h2>
   ${pluginRows(plugins)}
 </section>`;
-  return page({ title: `Marketplace de plugins, ${profile.name}`, description: market.description, body, current: "marketplace", pathname: "marketplace/" });
+  return page({ title: `Skills e plugins, ${profile.name}`, description: market.description, body, current: "marketplace", pathname: "marketplace/" });
 }
 
 function pluginPage(p) {
@@ -332,18 +362,21 @@ function pluginPage(p) {
 
 <section class="block" aria-labelledby="h-inst">
   <h2 id="h-inst">Instalar</h2>
-  ${cmd(`/plugin install ${p.name}@${market.name}`)}
-  <p class="note-text">Ainda não adicionou o marketplace? Rode antes <code>${e(addCmd)}</code>.</p>
+  ${installer((t) => {
+    if (t.id === "claude-code") return { cmds: [`/plugin install ${p.name}@${market.name}`], hint: `Ainda não adicionou o marketplace? Rode antes ${c(addCmd)}.` };
+    if (!p.skills.length) return { hint: `Este plugin é um hook do Claude Code e não tem versão para o ${t.label}.` };
+    return { cmds: [skillsCmd(t, ` --skill ${p.skills.map((s) => s.slug).join(" ")}`)], hint: `Instala ${p.skills.length === 1 ? "a skill" : `as ${p.skills.length} skills`} deste plugin no projeto. Acrescente ${c("-g")} para todos os projetos.` };
+  })}
 </section>
 
 ${p.readme ? `<section class="block" aria-labelledby="h-readme"><h2 id="h-readme">Como funciona</h2><div class="md">${markdown(p.readme, { headingOffset: 1 })}</div></section>` : ""}
 
 ${p.skills.length ? `<section class="block" aria-labelledby="h-skills">
   <h2 id="h-skills">Skills</h2>
-  <p class="note-text">O Claude carrega uma skill quando o pedido combina com a descrição dela. Você também pode chamar direto com <code>/${e(p.name)}:&lt;skill&gt;</code>. Abra cada uma para ler as instruções completas.</p>
+  <p class="note-text">O agente carrega uma skill quando o pedido combina com a descrição dela. No Claude Code, você também pode chamar direto com <code>/${e(p.name)}:&lt;skill&gt;</code>. Abra cada uma para ler as instruções completas.</p>
   ${skills}
 </section>` : ""}`;
-  return page({ title: `${p.displayName}, plugin para Claude Code`, description: p.description, body, current: "marketplace", pathname: `marketplace/${p.name}/` });
+  return page({ title: `${p.displayName}, ${profile.name}`, description: p.description, body, current: "marketplace", pathname: `marketplace/${p.name}/` });
 }
 
 // ---------- write ----------

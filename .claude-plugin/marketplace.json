@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "piero-sre",
-  "description": "SRE, observability and platform-engineering plugins for Claude Code, by Piero Azambuja.",
+  "name": "pieroazambuja",
+  "description": "SRE, observability and platform-engineering plugins and agent skills for Claude Code, Codex, Gemini CLI, Copilot, Cursor and Kiro, by Piero Azambuja.",
   "owner": {
     "name": "Piero Azambuja"
   },
