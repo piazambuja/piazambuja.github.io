@@ -255,8 +255,8 @@ function home() {
     </div>
     <dl class="facts-list">
       <div><dt>Foco</dt><dd>SRE e plataforma de IA</dd></div>
-      <div><dt>Stack</dt><dd>AWS, EKS, Prometheus, Grafana, OpenTelemetry, Bedrock</dd></div>
-      <div><dt>Hoje</dt><dd>${e(profile.experience[0].org)}</dd></div>
+      <div><dt>Stack</dt><dd>AWS, Kubernetes, Terraform, OpenTelemetry, Grafana, Amazon Bedrock</dd></div>
+      <div><dt>Busco</dt><dd>${e(profile.availability)}</dd></div>
     </dl>
   </div>
   <figure class="panel">
@@ -296,6 +296,10 @@ function home() {
   <ul class="edu">
     ${profile.education.map((x) => `<li><span class="when">${e(x.period)}</span><span>${e(x.title)}, ${e(x.org)}</span></li>`).join("")}
   </ul>
+  <h3 class="sub">Certificações</h3>
+  <ul class="edu">
+    ${(profile.certifications || []).map((x) => `<li><span class="when">${e(x.period)}</span><span>${e(x.title)}, ${e(x.org)}</span></li>`).join("")}
+  </ul>
 </section>
 
 <section class="block market-teaser" aria-labelledby="h-market">
@@ -310,6 +314,7 @@ function home() {
 
 <section class="block" id="contato" aria-labelledby="h-contato">
   <h2 id="h-contato">Contato</h2>
+  <p class="availability">${e(profile.availability)}</p>
   <ul class="contact">${contact}</ul>
 </section>`;
   return page({ title: `${profile.name}, ${profile.role}`, description: profile.lead, body, current: "home" });

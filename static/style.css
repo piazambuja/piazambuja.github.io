@@ -361,3 +361,4 @@ main, .site-header-inner, .site-footer {
 .installer-hint { margin: 0.25rem 0 0; padding: 0 1.25rem; font-size: var(--step--1); color: var(--code-dim); max-width: 40rem; }
 .installer-panel > .installer-hint:first-child { padding-top: 0.5rem; }
 .installer-hint code { color: var(--code-fg); overflow-wrap: anywhere; }
+.availability { margin: 0; font-size: var(--step-1); line-height: 1.45; max-width: 36rem; }
