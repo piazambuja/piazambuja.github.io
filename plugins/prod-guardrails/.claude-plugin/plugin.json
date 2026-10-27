@@ -1,0 +1,15 @@
+{
+  "name": "prod-guardrails",
+  "description": "PreToolUse hook that makes Claude ask before destructive kubectl, helm and terraform commands against production.",
+  "author": {
+    "name": "Piero Azambuja"
+  },
+  "license": "MIT",
+  "keywords": [
+    "hooks",
+    "kubectl",
+    "helm",
+    "terraform",
+    "safety"
+  ]
+}

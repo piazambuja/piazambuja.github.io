@@ -1,0 +1,91 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "pieroazambuja",
+  "description": "SRE, observability and platform-engineering plugins and agent skills for Claude Code, Codex, Gemini CLI, Copilot, Cursor and Kiro, by Piero Azambuja.",
+  "owner": {
+    "name": "Piero Azambuja"
+  },
+  "plugins": [
+    {
+      "name": "k8s-troubleshooting",
+      "displayName": "Kubernetes Troubleshooting",
+      "source": "./plugins/k8s-troubleshooting",
+      "category": "kubernetes",
+      "tags": [
+        "kubernetes",
+        "debugging",
+        "eks"
+      ]
+    },
+    {
+      "name": "observability",
+      "displayName": "Observability & SLOs",
+      "source": "./plugins/observability",
+      "category": "observability",
+      "tags": [
+        "slo",
+        "prometheus",
+        "promql",
+        "alerting"
+      ]
+    },
+    {
+      "name": "incident-response",
+      "displayName": "Incident Response",
+      "source": "./plugins/incident-response",
+      "category": "incident-management",
+      "tags": [
+        "incident",
+        "postmortem",
+        "on-call"
+      ]
+    },
+    {
+      "name": "aws-finops",
+      "displayName": "AWS FinOps",
+      "source": "./plugins/aws-finops",
+      "category": "cloud",
+      "tags": [
+        "aws",
+        "cost",
+        "finops"
+      ]
+    },
+    {
+      "name": "ai-platform",
+      "displayName": "AI Platform Engineering",
+      "source": "./plugins/ai-platform",
+      "category": "ai-platform",
+      "tags": [
+        "llm-gateway",
+        "bedrock",
+        "mcp",
+        "agents"
+      ]
+    },
+    {
+      "name": "prod-guardrails",
+      "displayName": "Production Guardrails",
+      "source": "./plugins/prod-guardrails",
+      "category": "safety",
+      "tags": [
+        "hooks",
+        "kubectl",
+        "terraform",
+        "safety"
+      ]
+    },
+    {
+      "name": "career",
+      "displayName": "Career & LinkedIn",
+      "source": "./plugins/career",
+      "category": "career",
+      "tags": [
+        "linkedin",
+        "career",
+        "job-search",
+        "github-pages"
+      ]
+    }
+  ]
+}

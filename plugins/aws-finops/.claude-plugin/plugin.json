@@ -1,0 +1,14 @@
+{
+  "name": "aws-finops",
+  "description": "Review AWS spend: find the biggest drivers, rightsizing and commitment opportunities, tagging gaps and quick wins, with savings estimates.",
+  "author": {
+    "name": "Piero Azambuja"
+  },
+  "license": "MIT",
+  "keywords": [
+    "aws",
+    "finops",
+    "cost",
+    "savings-plans"
+  ]
+}

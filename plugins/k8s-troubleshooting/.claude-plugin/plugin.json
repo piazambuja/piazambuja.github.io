@@ -1,0 +1,14 @@
+{
+  "name": "k8s-troubleshooting",
+  "description": "Systematic triage for broken Kubernetes workloads: CrashLoopBackOff, OOMKilled, Pending pods, image pulls, probes, DNS and node pressure.",
+  "author": {
+    "name": "Piero Azambuja"
+  },
+  "license": "MIT",
+  "keywords": [
+    "kubernetes",
+    "eks",
+    "debugging",
+    "kubectl"
+  ]
+}

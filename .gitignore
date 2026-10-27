@@ -1,0 +1,12 @@
+dist/
+node_modules/
+.DS_Store
+__pycache__/
+.env
+.env.*
+*.pem
+*.key
+*.pdf
+uploads/
+.vscode/
+.idea/

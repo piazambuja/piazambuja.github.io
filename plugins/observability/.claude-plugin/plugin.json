@@ -1,0 +1,17 @@
+{
+  "name": "observability",
+  "description": "Design SLIs, SLOs and multi-window burn-rate alerts, write and review PromQL, and audit noisy alerting.",
+  "author": {
+    "name": "Piero Azambuja"
+  },
+  "license": "MIT",
+  "keywords": [
+    "slo",
+    "sli",
+    "error-budget",
+    "prometheus",
+    "promql",
+    "alerting",
+    "grafana"
+  ]
+}
